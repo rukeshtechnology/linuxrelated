@@ -1,10 +1,14 @@
 1)  Editing and viewing logs
 2)  FileSystem Related
+    Basic File system commands
+    File Permission and ownership
 3)  Find and Search Related
+4)  VI Commands
+5)  Software Installation
 25) Shell Programming Related
 
 1)  Editing and viewing logs
-===================================================================================================
+===================================================================================================================================================
 tail -n 20 log.txt					//tail by default show 10 lines. -n let you change that.
 head -n 20 log.txt					//First 20 lines of the head file.
 tail -f log.txt						//This tails the file real time.
@@ -16,14 +20,45 @@ alias showlog						//This will show the contents of the showlog alias
 
 
 2)  FileSystem Related
-===================================================================================================
+===================================================================================================================================================
+Basic File system commands
+---------------------------------------------------------
+ls									list
+cd 									change directory
+mv									move file or directory
+man									man pages for the linux command
+rmdir								remove directory
+rm									remove files
+touch								make file command (e.g. touch testfile.txt)
+locate								find command (e.g. locate -i *red*house**city*)
+clear								clear console
+.									Current directory
+/									root directory
+./filesname.sh						Run the shell file
+./script1.sh > out.txt				redirect output to a file, clears the exitsting contents and put the new content.
+./script1.sh >> out.txt				redirect output to the end of the out.txt
 mv file1 file2 						//Rename files
 mv directory1 directory2				//Rename directory
 mv ../temp/linuxPractice/ .				//Move linuxPrctice folder to this folder.
 mv file1 file2 						//Rename files
 
+File Permission and ownership
+---------------------------------------------------------
+http://linuxcommand.org/lc3_lts0090.php
+-rwxrwxrwx
+	First character on the left, - represents regular file, d represents directory
+	rwx first block, read, write and execute permission for the file owner.
+	rwx second block, read, write and execute permission for the group owner.
+	rwx thrid block, read, write and execute permission for the other users.
+	
+chmod								Modify the access rights
+su									temporary become the superuser
+sudo								temporary become the superuser
+chown								Change file ownership
+chgrp								Change a file's group ownership
+
 3)  Find and Search Related
-===================================================================================================
+===================================================================================================================================================
 grep Rukesh *						//Find Rukesh in all files of this directory
 grep -i Rukesh testfile.txt				//Find Rukesh in testfile.txt. Case insensitive
 grep Rukesh testfile.txt testfile3.txt			//Find in two files
@@ -41,6 +76,38 @@ grep -C 1 "Rukesh" testfile.txt				//Show one line before and after on testfile
 
 Shell Programming Related
 
+4)  VI Commands
+===================================================================================================================================================
+Normal mode
+---------------------------------------------------------
+:q!									//quit without saving anything.
+:w
+:i or :I 							Insert I(capital means beggnning of the line)
+:a or :A 							Append  (capital means end of the line)
 
+:r 									replace only one character
+:R 									(permanent replace mode)
 
+: 									x Delete 
+dd: 								Delete whole line
 
+Save:
+:ZZ  								(cap z) Save and exit
+
+Search
+---------------------------------------------------------
+/  									Search Forward
+?  									Search Backward
+n and N 							(Next or previous. You might have to esc before this works)
+
+Copy and Paste
+---------------------------------------------------------
+y 									to copy or yank
+yy 									copy entire line
+v 									Select in visual mode
+p                                   Paste
+
+5)  Software Installation
+===================================================================================================================================================
+$ sudo apt-get install grep         Debian/Ubuntu
+$ sudo yum install grep             RHEL/CentOS/Fedora
