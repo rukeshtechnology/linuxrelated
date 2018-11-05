@@ -1,24 +1,27 @@
-//Editing and viewing logs
+1)  Editing and viewing logs
+2)  FileSystem Related
+3)  Find and Search Related
 
+1)  Editing and viewing logs
+===================================================================================================
 tail -n 20 log.txt					//tail by default show 10 lines. -n let you change that.
 head -n 20 log.txt					//First 20 lines of the head file.
 tail -f log.txt						//This tails the file real time.
 
-C
 Note: alias is session based. If you have logged out of the 
 
 alias showlog  = "tail -f /var/log/log.txt" 		//Now if you type the showlog, it will run tail comMmand in it.
 alias showlog						//This will show the contents of the showlog alias
 
 
-FileSystem Related
+2)  FileSystem Related
 ===================================================================================================
 mv file1 file2 						//Rename files
 mv directory1 directory2				//Rename directory
 mv ../temp/linuxPractice/ .				//Move linuxPrctice folder to this folder.
 mv file1 file2 						//Rename files
 
-Find and Search Related
+3)  Find and Search Related
 ===================================================================================================
 grep Rukesh *						//Find Rukesh in all files of this directory
 grep -i Rukesh testfile.txt				//Find Rukesh in testfile.txt. Case insensitive
@@ -34,6 +37,8 @@ grep -w Tamrakar *					//Find the whole word using -w switch
 grep -A 2 "Rukesh" *					//Show one line after the search result
 grep -B 2 "Rukesh" *					//Show one line before the search result
 grep -C 1 "Rukesh" testfile.txt				//Show one line before and after on testfile
+
+Shell Programming Related
 
 
 
