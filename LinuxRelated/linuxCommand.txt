@@ -1,0 +1,40 @@
+//Editing and viewing logs
+
+tail -n 20 log.txt					//tail by default show 10 lines. -n let you change that.
+head -n 20 log.txt					//First 20 lines of the head file.
+tail -f log.txt						//This tails the file real time.
+
+C
+Note: alias is session based. If you have logged out of the 
+
+alias showlog  = "tail -f /var/log/log.txt" 		//Now if you type the showlog, it will run tail comMmand in it.
+alias showlog						//This will show the contents of the showlog alias
+
+
+FileSystem Related
+===================================================================================================
+mv file1 file2 						//Rename files
+mv directory1 directory2				//Rename directory
+mv ../temp/linuxPractice/ .				//Move linuxPrctice folder to this folder.
+mv file1 file2 						//Rename files
+
+Find and Search Related
+===================================================================================================
+grep Rukesh *						//Find Rukesh in all files of this directory
+grep -i Rukesh testfile.txt				//Find Rukesh in testfile.txt. Case insensitive
+grep Rukesh testfile.txt testfile3.txt			//Find in two files
+grep -iv Rukesh *					//Give all lines in all files of this folder, which does not have Rukesh in it. Case insensitive
+grep -l rukesh *					//Find all files with Rukesh
+grep -il rukesh *					//Find all files with Rukesh case insensitive
+grep -c rukesh *					//Count of rukesh in all files
+grep -ic rukesh *					//Count of rukesh in all files case insensitive
+grep -r SampleTest *					//Find SampleTest recursively.
+grep -i "Rukesh Tamrakar" *				//Find whole word
+grep -w Tamrakar *					//Find the whole word using -w switch
+grep -A 2 "Rukesh" *					//Show one line after the search result
+grep -B 2 "Rukesh" *					//Show one line before the search result
+grep -C 1 "Rukesh" testfile.txt				//Show one line before and after on testfile
+
+
+
+
