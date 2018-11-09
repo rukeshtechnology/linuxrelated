@@ -1,0 +1,140 @@
+Git commands
+==================================================================================================================================
+
+General commands and configurations
+----------------------------------------------------------------------------------------------------------------------------------
+git --version
+git log --oneline														   //Shows all the commits with one line message
+git log --oneline --decorate
+git log --oneline --graph --decorate
+git log --oneline --graph --decorate --all
+git config --global user.name "rukesh"
+git config --global user.email"rukeshtechnology@gmail.com"
+git config --global core.editor "notepad++.exe -multiInst -nosession"
+git config --global -e                                                     //Edit the config file
+git config --global --list
+git config --list
+git help config
+git config --help
+git status
+
+notepad++ .bash_profile  (From user's home directory)
+alias npp='notepad++.exe -multiInst -nosession'
+cat ~/.gitconfig
+
+
+Repository Creation and destruction
+----------------------------------------------------------------------------------------------------------------------------------
+git init
+gtt init fresh-project 													//with project name creates new directory fresh-project
+rm -rf .git  (To stop tracking with git)
+git clone https://github.com/rukeshtechnology/girpractice.git
+
+Actual commits and modifications
+----------------------------------------------------------------------------------------------------------------------------------
+git ls-files  (Find tracked files)
+git add hello.java
+git add .  (Recursively add everything)
+git add -A
+git commit
+git commit -m "Adding hello.java"
+git commit -am "Inline message"                                          //(Add and commit, with Inline message)
+git reset head name-of-the-file                                          //(backing out from index)
+git checkout -- filename                                                 //(backout changes completely back to filesystem)
+git push origin master													 //Push to origin master
+git pull origin master													 //Pull origin master
+git fetch origin master													 //Non destructive command that simply updates the references between local and remote repository
+git pull --rebase origin master											 //Pull from remote origin master and then rebase to checked out branch.
+
+Rename files and remove files
+----------------------------------------------------------------------------------------------------------------------------------
+git mv currentfilename newfilename   									//Using git command
+mv currentfilename newfilename 											//If you use bash command need to use -A with add command
+git add -A                      										//Adds renamed, moved deleted files also
+git add -u
+
+Comparisions
+----------------------------------------------------------------------------------------------------------------------------------
+git diff      	                                                          
+get diff head															//(Between working directory and staging index)
+git difftool
+git diff --stage head													//Stage and head commit comparision
+git difftool --stage head												//Stage and head commit comparision using difftool
+git diff -- filename                                                    //Diff limiting only one file.
+git diff ae6f872 HEAD													//Comparision of two commits
+git diff HEAD HEAD^														//Comparision between HEAD and HEAD - 1
+git diff 22c289a b196780												//Comparision between two commit snapshots
+git diff master origin/master											//Comparision between local master and remote
+git difftool master origin/master										//Comparision between local master and remote using difftool
+git commit -m "Done with merge"											//After merge is done, run git commit command.
+
+
+Branching and Merging and Rebasing
+----------------------------------------------------------------------------------------------------------------------------------
+git branch																//List local branches only
+git branch -a															//List local and remote branch. * signifies active branch
+git branch mynewbranch													//Creates new branch
+git branch checkout mynewbranch											//Checks out mynewbranch
+git branch -m mynewbranch newbranch										//Renaming mynewbranch to newbranch
+git branch -d newbranch													//Deleting a branch you are NOT currently on.
+git branch -d title-change												//Delete branch title-change
+git checkout -b 'title-change'											//Checkout with branch name title-change
+git merge title-change													//Merge from title-change to the checkouted branch
+git merge add-copyright --no-ff											//No fast forward merge from add-copyright to master checked out
+git mergetool
+git rebase fromBranchName												//Rebase fromBranchName to checked out branch name
+gir rebase --abort														//Abort rebase if it is too complicated
+git rebase --continue
+		
+Stashing (Only stash tracked files)
+----------------------------------------------------------------------------------------------------------------------------------
+git stash																//Stash unchanged files
+git stash apply															//Get back stashed files.
+git stash list															//List stash
+git stash drop															//drop last stash
+git stash -u															//Include untracked files also in 
+git stash pop															//Equivalent to git stash apply and git stash drop combined.
+git stash save "change one"												//Stash with save
+git stash show stash@{1}												//Showing particular stash
+git stash apply stash@{1}												//Apply stash 1
+git stash drop stash@{1}												//Drop stash 1
+git stash clear															//Empty all stashes
+git stash -u															//Stash also untracked files
+git stash branch nameofabranch											//git stash branch command.
+
+
+Igoning Unwanted files from Git
+----------------------------------------------------------------------------------------------------------------------------------
+Specific file: myfile.txt
+File pattern: *.txt
+folder: my-folder
+
+Setting up p4Merge as diff and merge tool
+----------------------------------------------------------------------------------------------------------------------------------
+git config --global merge.tool p4merge
+git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+git config --global mergetool.prompt false (Not to prompt for merge tool everytime)
+
+git config --global merge.tool TortoiseGitMerge
+git config --global mergetool.TortoiseGitMerge.path "C:/Program Files/TortoiseGit/bin/TortoiseGitMerge.exe"
+
+git config --global diff.tool p4merge
+git config --global difftool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+git config --global difftool.prompt false
+
+
+
+
+
+Unix commands
+ls -al
+rm filename
+rm -rf fresh-project 
+
+
+Scenarios
+----------------------------------------------------------------------------------------------------------------------------------
+Eclipse and command line
+Multiple file merge conflict issue.
+Delete files in the remote repository.
+Rebase multiple files with conflict.
