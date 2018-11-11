@@ -23,6 +23,7 @@ alias showlog						//This will show the contents of the showlog alias
 ===================================================================================================================================================
 Basic File system commands
 ---------------------------------------------------------
+touch fileName						Create file
 ls									list
 cd 									change directory
 mv									move file or directory
