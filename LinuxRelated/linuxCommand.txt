@@ -7,6 +7,11 @@
 5)  Software Installation
 25) Shell Programming Related
 
+
+0) Most basic features and commands
+===================================================================================================================================================
+man ls								//Looking at the man pages
+
 1)  Editing and viewing logs
 ===================================================================================================================================================
 tail -n 20 log.txt					//tail by default show 10 lines. -n let you change that.
@@ -23,12 +28,15 @@ alias showlog						//This will show the contents of the showlog alias
 ===================================================================================================================================================
 Basic File system commands
 ---------------------------------------------------------
+. files are configuration files
+pwd									Present working directory
 touch fileName						Create file
-ls									list
+mkdir
+ls -al								list
 cd 									change directory
-mv									move file or directory
+mv									Rename or move file or directory mv myfile mynewfile
 man									man pages for the linux command
-rmdir								remove directory
+rmdir								remove directory. Directory has to be empty.
 rm									remove files
 touch								make file command (e.g. touch testfile.txt)
 locate								find command (e.g. locate -i *red*house**city*)
@@ -39,14 +47,15 @@ clear								clear console
 ./script1.sh > out.txt				redirect output to a file, clears the exitsting contents and put the new content.
 ./script1.sh >> out.txt				redirect output to the end of the out.txt
 mv file1 file2 						//Rename files
-mv directory1 directory2				//Rename directory
-mv ../temp/linuxPractice/ .				//Move linuxPrctice folder to this folder.
+mv directory1 directory2			//Rename directory
+mv ../temp/linuxPractice/ .			//Move linuxPrctice folder to this folder.
 mv file1 file2 						//Rename files
 
 File Permission and ownership
 ---------------------------------------------------------
 http://linuxcommand.org/lc3_lts0090.php
 -rwxrwxrwx
+drwxrwxrwx			
 	First character on the left, - represents regular file, d represents directory
 	rwx first block, read, write and execute permission for the file owner.
 	rwx second block, read, write and execute permission for the group owner.

@@ -4,6 +4,7 @@ Git commands
 General commands and configurations
 ----------------------------------------------------------------------------------------------------------------------------------
 git --version
+git log                                                                    //Shows commits
 git log --oneline														   //Shows all the commits with one line message
 git log --oneline --decorate
 git log --oneline --graph --decorate
@@ -71,6 +72,8 @@ git commit -m "Done with merge"											//After merge is done, run git commit 
 
 Branching and Merging and Rebasing
 ----------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------                                //Branch Related
 git branch																//List local branches only
 git branch -a															//List local and remote branch. * signifies active branch
 git branch mynewbranch													//Creates new branch
@@ -79,9 +82,18 @@ git branch -m mynewbranch newbranch										//Renaming mynewbranch to newbranch
 git branch -d newbranch													//Deleting a branch you are NOT currently on.
 git branch -d title-change												//Delete branch title-change
 git checkout -b 'title-change'											//Checkout with branch name title-change
+
+----------------------------------------                                //Merge Related
+git checkout feature  git merge master                                  //Checkout the feature branch and merge master to it.                                     
+git merge master feature                                                //This is condensed same as above
 git merge title-change													//Merge from title-change to the checkouted branch
 git merge add-copyright --no-ff											//No fast forward merge from add-copyright to master checked out
 git mergetool
+
+----------------------------------------                                //Rebase related
+git checkout feature                                                    //Check out feature and rebase master branch to it.
+git rebase master
+
 git rebase fromBranchName												//Rebase fromBranchName to checked out branch name
 gir rebase --abort														//Abort rebase if it is too complicated
 git rebase --continue
